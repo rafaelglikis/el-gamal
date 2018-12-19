@@ -45,7 +45,6 @@ public class main extends javax.swing.JFrame {
         txtPkH.setText(publicKey.getH().toString());
         
         PrivateKey privateKey = elGamal.getPrivateKey();
-        txtSkP.setText(privateKey.getP().toString());
         txtSkX.setText(privateKey.getX().toString());
     }
 
@@ -103,9 +102,7 @@ public class main extends javax.swing.JFrame {
         txtPkH = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtSkP = new javax.swing.JTextField();
         txtSkX = new javax.swing.JTextField();
         btnKeysGenerate = new javax.swing.JButton();
         keySize = new javax.swing.JTextField();
@@ -124,6 +121,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel9.setText("Cipher Text 1:");
 
+        encryptCipherText1.setEditable(false);
         encryptCipherText1.setColumns(20);
         encryptCipherText1.setLineWrap(true);
         encryptCipherText1.setRows(5);
@@ -132,6 +130,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel10.setText("Cipher Text 2:");
 
+        encryptCipherText2.setEditable(false);
         encryptCipherText2.setColumns(20);
         encryptCipherText2.setLineWrap(true);
         encryptCipherText2.setRows(5);
@@ -258,7 +257,7 @@ public class main extends javax.swing.JFrame {
                     .addComponent(btnEncrypt)
                     .addComponent(btnEncryptClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         btnEncrypt.getAccessibleContext().setAccessibleName("encryptButton");
@@ -284,6 +283,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        decryptPlainText.setEditable(false);
         decryptPlainText.setColumns(20);
         decryptPlainText.setLineWrap(true);
         decryptPlainText.setRows(5);
@@ -352,7 +352,7 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDecrypt)
                     .addComponent(btnDecryptClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         btnDecrypt.getAccessibleContext().setAccessibleName("decryptButton");
@@ -433,11 +433,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel2.setText("Private Key:");
 
-        jLabel6.setText("p:");
-
         jLabel7.setText("x:");
-
-        txtSkP.setEditable(false);
 
         txtSkX.setEditable(false);
 
@@ -449,12 +445,9 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel6)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSkP)
-                    .addComponent(txtSkX, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+                .addComponent(txtSkX, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -464,16 +457,11 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtSkP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtSkX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtSkP.getAccessibleContext().setAccessibleName("privateKeyP");
         txtSkX.getAccessibleContext().setAccessibleName("privateKeyX");
 
         btnKeysGenerate.setText("Generate");
@@ -493,16 +481,16 @@ public class main extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(keySize, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(453, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnKeysGenerate)
-                .addContainerGap())
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addGap(31, 31, 31)
-                .addComponent(keySize, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,14 +498,14 @@ public class main extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(keySize, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel13)
+                    .addComponent(keySize, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(btnKeysGenerate)
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         jTabbedPane2.addTab("Keys", jPanel5);
@@ -548,7 +536,6 @@ public class main extends javax.swing.JFrame {
         txtPkH.setText(publicKey.getH().toString());
         
         PrivateKey privateKey = elGamal.getPrivateKey();
-        txtSkP.setText(privateKey.getP().toString());
         txtSkX.setText(privateKey.getX().toString());
     }//GEN-LAST:event_btnKeysGenerateActionPerformed
 
@@ -661,7 +648,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -682,7 +668,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField txtPkG;
     private javax.swing.JTextField txtPkH;
     private javax.swing.JTextField txtPkP;
-    private javax.swing.JTextField txtSkP;
     private javax.swing.JTextField txtSkX;
     // End of variables declaration//GEN-END:variables
 }

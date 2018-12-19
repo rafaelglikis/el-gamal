@@ -4,23 +4,11 @@ import java.math.BigInteger;
 
 public class PrivateKey
 {
-    private BigInteger p;
     private BigInteger x;
 
-    public PrivateKey(BigInteger p, BigInteger x)
+    public PrivateKey(BigInteger x)
     {
-        this.p = p;
         this.x = x;
-    }
-
-    public BigInteger getP()
-    {
-        return p;
-    }
-
-    public void setP(BigInteger p)
-    {
-        this.p = p;
     }
 
     public BigInteger getX()

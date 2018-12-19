@@ -55,7 +55,7 @@ public final class ElGamal
         BigInteger h = g.modPow(x, p);
         // secret key is (p, x) and public key is (p, g, h)
         this.publicKey = new PublicKey(p, g, h);
-        this.privateKey = new PrivateKey(p, x);
+        this.privateKey = new PrivateKey(x);
     }
 
     /**
@@ -94,7 +94,7 @@ public final class ElGamal
     {
         BigInteger gr = encryptedMessage.getGr();
         BigInteger mhr = encryptedMessage.getMhr();
-        BigInteger p = this.privateKey.getP();
+        BigInteger p = this.publicKey.getP();
         BigInteger x = this.privateKey.getX();
 
         BigInteger hr = gr.modPow(x, p);
